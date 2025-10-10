@@ -1,0 +1,118 @@
+{% extends "base_website.html" %}
+
+{% block title %}Academic Services - الأسعار وآلية العمل{% endblock title %}
+
+{% block body_data_page %}pricing{% endblock body_data_page %}
+
+{% block content %}
+    <div class="@container relative text-center">
+        <div class="relative z-10 p-4">
+            <h1 class="dark:text-white light:text-black text-5xl font-black leading-tight tracking-tight md:text-6xl font-display max-w-5xl mx-auto mb-4" style="text-shadow: 0 0 15px var(--glow-color);">
+                الشفافية في السعر. الإتقان في العمل.
+            </h1>
+            <h2 class="dark:text-gray-300 light:text-black text-lg font-normal leading-relaxed md:text-xl max-w-4xl mx-auto mb-10">
+                تتبع مشروعك خطوة بخطوة، وتعرف على آلية التسعير العادلة والمبنية على الجودة والوقت المطلوب للإنجاز.
+            </h2>
+            <div class="flex justify-center gap-4">
+                <a href="ORDER_QUOTE_PAGE_LINK" class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-primary dark:text-background-dark light:text-white text-lg font-bold shadow-primary-glow hover:opacity-90 transition-colors duration-300">
+                    <span class="truncate">اطلب عرض سعر مجاني</span>
+                </a>
+                <a href="TELEGRAM_CONTACT_LINK" class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 border-2 dark:border-white/20 light:border-text-light-dark/20 dark:text-white light:text-text-light-dark text-lg font-bold hover:dark:bg-white/5 hover:light:bg-text-light-dark/5 transition-all duration-300">
+                    <span class="truncate">تحدث مع خبير الآن</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-10 px-4 py-10 @container">
+        <h2 class="dark:text-white light:text-black text-4xl font-black font-display px-4 text-center">رحلة إنجاز مشروعك خطوة بخطوة</h2>
+        
+        <div class="process-step-container hidden md:flex mx-auto max-w-5xl w-full">
+            
+            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                <div class="process-icon-wrapper">
+                    <span class="material-symbols-outlined text-white text-4xl">edit_note</span>
+                </div>
+                <h3 class="text-primary text-xl font-black font-display mb-1 mt-4">1. إرسال الطلب</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm">تزويدنا بالتفاصيل الكاملة للمشروع.</p>
+            </div>
+
+            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                <div class="process-icon-wrapper">
+                    <span class="material-symbols-outlined text-white text-4xl">currency_exchange</span>
+                </div>
+                <h3 class="text-primary text-xl font-black font-display mb-1 mt-4">2. الموافقة والدفع</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm">نقدم عرض السعر، وبدء العمل بعد دفع الدفعة الأولى.</p>
+            </div>
+
+            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                <div class="process-icon-wrapper">
+                    <span class="material-symbols-outlined text-white text-4xl">monitoring</span>
+                </div>
+                <h3 class="text-primary text-xl font-black font-display mb-1 mt-4">3. التنفيذ والمتابعة</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm">متابعة سير العمل مباشرةً مع المنفذ عبر الداشبورد.</p>
+            </div>
+
+            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                <div class="process-icon-wrapper">
+                    <span class="material-symbols-outlined text-white text-4xl">check_circle</span>
+                </div>
+                <h3 class="text-primary text-xl font-black font-display mb-1 mt-4">4. استلام النجاح</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm">استلام الملف النهائي بتقرير الأصالة وضمان المراجعة.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-10 px-4 py-10 @container dark:bg-card-dark/50 light:bg-background-light/50 rounded-xl">
+        <h2 class="dark:text-white light:text-black text-4xl font-black font-display px-4 text-center">عوامل الشفافية في التسعير</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            
+            <div class="flex items-start gap-4 p-4 rounded-lg dark:hover:bg-background-dark light:hover:bg-gray-100 transition-colors duration-300">
+                <span class="material-symbols-outlined text-primary text-3xl mt-1">school</span>
+                <div>
+                    <h3 class="dark:text-white light:text-black text-xl font-bold font-display">التخصص والدرجة العلمية</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base">يُؤخذ في الاعتبار مستوى التعقيد الأكاديمي، خاصة في التخصصات المتخصصة ودرجات الماجستير/الدكتوراه.</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 rounded-lg dark:hover:bg-background-dark light:hover:bg-gray-100 transition-colors duration-300">
+                <span class="material-symbols-outlined text-primary text-3xl mt-1">schedule</span>
+                <div>
+                    <h3 class="dark:text-white light:text-black text-xl font-bold font-display">عامل التعجيل بالموعد النهائي</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base">الطلبات العاجلة (خلال 72 ساعة) تحتاج إلى تخصيص فوري للمنفذين، مما يزيد من التكلفة لضمان الجودة.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-lg dark:hover:bg-background-dark light:hover:bg-gray-100 transition-colors duration-300">
+                <span class="material-symbols-outlined text-primary text-3xl mt-1">description</span>
+                <div>
+                    <h3 class="dark:text-white light:text-black text-xl font-bold font-display">نطاق العمل وحجمه</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base">يُحدد السعر بناءً على عدد الكلمات/الصفحات ونوع التحليل المطلوب (مثل التحليل الإحصائي).</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-lg dark:hover:bg-background-dark light:hover:bg-gray-100 transition-colors duration-300">
+                <span class="material-symbols-outlined text-primary text-3xl mt-1">verified_user</span>
+                <div>
+                    <h3 class="dark:text-white light:text-black text-xl font-bold font-display">ضمان الجودة والمراجعات</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base">السعر يشمل ضمان مراجعات غير محدودة لمدة 7 أيام للتعديلات البسيطة وتقرير الأصالة الكامل.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="px-4">
+        <div class="dark:bg-card-dark light:bg-card-light rounded-xl p-8 lg:p-12 border dark:border-primary/20 light:border-secondary-light/30 shadow-primary-glow mx-auto max-w-4xl text-center">
+            <h2 class="dark:text-white light:text-black text-3xl font-black font-display mb-4">هل لديك تفاصيل مشروعك؟</h2>
+            <p class="dark:text-gray-300 light:text-black text-xl mb-8">اطلب عرض سعر دقيقًا ومجانيًا الآن لبدء التنفيذ الفوري.</p>
+            
+            <div class="flex justify-center gap-4">
+                <a href="ORDER_QUOTE_PAGE_LINK" class="flex min-w-[200px] max-w-sm cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-primary dark:text-background-dark light:text-white text-lg font-bold shadow-primary-glow hover:shadow-xl transition-shadow duration-500">
+                    <span class="truncate">اطلب عرض سعر مجاني</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

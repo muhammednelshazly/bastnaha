@@ -1,0 +1,139 @@
+{% extends "base_website.html" %}
+
+{% block title %}Academic Services - خدماتنا المتخصصة{% endblock title %}
+
+{% block body_data_page %}services{% endblock body_data_page %}
+
+{% block content %}
+    <div class="@container relative text-center">
+        <div class="relative z-10 p-2 md:p-4">
+            <h1 class="dark:text-white light:text-black text-3xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight font-display max-w-5xl mx-auto mb-4" style="text-shadow: 0 0 15px var(--glow-color);">
+                خدمات أكاديمية متكاملة. نتائج مضمونة.
+            </h1>
+            <h2 class="dark:text-gray-300 light:text-black text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-4xl mx-auto mb-6 md:mb-10">
+                نغطي جميع التخصصات والكليات: بدءاً من الواجبات السريعة وصولاً إلى مشاريع التخرج المعقدة، بضمان الجودة والسرية.
+            </h2>
+            <a href="{% url 'make_order' %}" class="inline-flex min-w-[160px] md:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 md:h-14 px-6 md:px-8 bg-secondary dark:text-white light:text-background-dark text-base md:text-lg font-bold shadow-xl max-w-xs hover:opacity-90 transition-colors duration-300">
+                <span class="truncate">اطلب خدمتك الآن</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-8 md:gap-10 px-2 md:px-4 py-6 md:py-10 @container">
+        <h2 class="dark:text-white light:text-black text-2xl md:text-4xl font-black font-display px-2 md:px-4 text-center">تصنيفات خدماتنا الرئيسية</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+            
+            <a href="#" class="service-card-hover group flex flex-col gap-3 md:gap-4 rounded-xl border dark:border-white/10 light:border-gray-300 dark:bg-card-dark light:bg-card-light p-4 md:p-8 shadow-xl transition-all duration-500">
+                <div class="text-primary transition-all duration-300 icon-animation">
+                    <span class="material-symbols-outlined text-4xl md:text-5xl">auto_stories</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="dark:text-white light:text-black text-xl font-bold leading-tight font-display">مشاريع التخرج والأطروحات</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base font-normal leading-relaxed">دعم متكامل للمشاريع والأطروحات، مع ضمان الأصالة والالتزام بأعلى المعايير.</p>
+                </div>
+            </a>
+            
+            <a href="#" class="service-card-hover group flex flex-col gap-4 rounded-xl border dark:border-white/10 light:border-gray-300 dark:bg-card-dark light:bg-card-light p-8 shadow-xl transition-all duration-500">
+                <div class="text-primary transition-all duration-300 icon-animation">
+                    <span class="material-symbols-outlined text-5xl">assignment</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="dark:text-white light:text-black text-xl font-bold leading-tight font-display">الواجبات والتكليفات السريعة</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base font-normal leading-relaxed">إنجاز دقيق وسريع للواجبات القصيرة والمتوسطة مع الالتزام التام بالموعد النهائي.</p>
+                </div>
+            </a>
+
+            <a href="#" class="service-card-hover group flex flex-col gap-4 rounded-xl border dark:border-white/10 light:border-gray-300 dark:bg-card-dark light:bg-card-light p-8 shadow-xl transition-all duration-500">
+                <div class="text-primary transition-all duration-300 icon-animation">
+                    <span class="material-symbols-outlined text-5xl">article</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="dark:text-white light:text-black text-xl font-bold leading-tight font-display">الأبحاث والتقارير الأكاديمية</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base font-normal leading-relaxed">إعداد أبحاث متعمقة وتقارير منهجية وفقاً لمتطلبات جامعتك وتخصصك.</p>
+                </div>
+            </a>
+
+            <a href="#" class="service-card-hover group flex flex-col gap-4 rounded-xl border dark:border-white/10 light:border-gray-300 dark:bg-card-dark light:bg-card-light p-8 shadow-xl transition-all duration-500">
+                <div class="text-primary transition-all duration-300 icon-animation">
+                    <span class="material-symbols-outlined text-5xl">spellcheck</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="dark:text-white light:text-black text-xl font-bold leading-tight font-display">التدقيق اللغوي والمراجعة</h3>
+                    <p class="dark:text-gray-400 light:text-gray-600 text-base font-normal leading-relaxed">مراجعة شاملة لغوية وتنسيقية لضمان خلو عملك من الأخطاء الأكاديمية والطباعية.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-10 px-4 py-10 @container">
+        <h2 class="dark:text-white light:text-black text-4xl font-black font-display px-4 text-center">كيف نحدد سعر خدمتك؟</h2>
+        <p class="dark:text-gray-300 light:text-black text-xl text-center max-w-3xl mx-auto">نعتمد على الشفافية التامة في التسعير. يحدد السعر النهائي بناءً على ثلاثة عوامل رئيسية لضمان الإنصاف والجودة.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            
+            <div class="flex flex-col gap-4 dark:bg-card-dark/70 light:bg-card-light p-6 rounded-xl border dark:border-white/10 light:border-gray-300 shadow-lg">
+                <span class="material-symbols-outlined text-primary text-4xl mx-auto">school</span>
+                <h3 class="dark:text-white light:text-black text-xl font-bold text-center font-display">مستوى الصعوبة والتخصص</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm text-center">التخصصات المعقدة (كالطب والهندسة) والدرجات العليا (الماجستير/الدكتوراه) تتطلب خبرة أكبر.</p>
+            </div>
+
+            <div class="flex flex-col gap-4 dark:bg-card-dark/70 light:bg-card-light p-6 rounded-xl border dark:border-white/10 light:border-gray-300 shadow-lg">
+                <span class="material-symbols-outlined text-primary text-4xl mx-auto">description</span>
+                <h3 class="dark:text-white light:text-black text-xl font-bold text-center font-display">الطول والنطاق المطلوب</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm text-center">يتم احتساب السعر بناءً على عدد الكلمات أو الصفحات وحجم العمل الكلي المحدد في طلبك.</p>
+            </div>
+
+            <div class="flex flex-col gap-4 dark:bg-card-dark/70 light:bg-card-light p-6 rounded-xl border dark:border-white/10 light:border-gray-300 shadow-lg">
+                <span class="material-symbols-outlined text-primary text-4xl mx-auto">schedule</span>
+                <h3 class="dark:text-white light:text-black text-xl font-bold text-center font-display">التعجيل بالموعد النهائي</h3>
+                <p class="dark:text-gray-400 light:text-gray-600 text-sm text-center">الطلبات التي تتطلب تسليماً في أقل من 48 ساعة تُعامل كطلبات عاجلة بتكلفة إضافية.</p>
+            </div>
+
+        </div>
+
+        <a href="ORDER_QUOTE_PAGE_LINK" class="flex min-w-[250px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-primary dark:text-background-dark light:text-white text-lg font-bold shadow-primary-glow mx-auto max-w-sm hover:opacity-90 transition-opacity duration-300">
+            <span class="truncate">اطلب عرض سعر مجاني الآن</span>
+        </a>
+    </div>
+    
+    <div class="flex flex-col gap-8 px-4 py-10 @container dark:bg-card-dark/50 light:bg-background-light/50 rounded-xl">
+        <h2 class="dark:text-white light:text-black text-4xl font-black font-display px-4 text-center">نغطي تخصصاتك بدقة</h2>
+        <p class="dark:text-gray-300 light:text-black text-lg text-center max-w-4xl mx-auto">نمتلك فريقًا من الخبراء في جميع المجالات الرئيسية لجامعات الخليج والشرق الأوسط.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center mt-6">
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">engineering</span>
+                <p class="dark:text-white light:text-black font-medium text-center">الهندسة</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">medical_services</span>
+                <p class="dark:text-white light:text-black font-medium text-center">الطب والعلوم الصحية</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">business_center</span>
+                <p class="dark:text-white light:text-black font-medium text-center">إدارة الأعمال</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">gavel</span>
+                <p class="dark:text-white light:text-black font-medium text-center">القانون والحقوق</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">psychology</span>
+                <p class="dark:text-white light:text-black font-medium text-center">العلوم الإنسانية</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-4xl">data_exploration</span>
+                <p class="dark:text-white light:text-black font-medium text-center">علوم الحاسب والبيانات</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center px-4 py-12 md:py-20 dark:bg-gradient-to-t dark:from-primary/20 dark:to-background-dark light:bg-primary/20 rounded-xl mx-2 md:mx-4">
+        <h2 class="text-3xl md:text-5xl font-black dark:text-white light:text-black mb-4 md:mb-6 font-display" style="text-shadow: 0 0 15px var(--glow-color);">جهز ملفاتك. ابدأ مشروعك بنجاح الآن.</h2>
+        <p class="dark:text-gray-300 light:text-gray-700 text-base md:text-xl mb-6 md:mb-10">نحن بانتظار تفاصيل مشروعك لتقديم الدعم الفوري والاحترافي.</p>
+        <a href="{% url 'make_order' %}" class="inline-flex min-w-[180px] md:min-w-[200px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 md:h-14 px-6 md:px-8 bg-primary dark:text-background-dark light:text-white text-base md:text-lg font-bold leading-normal tracking-[0.015em] shadow-primary-glow hover:shadow-xl transition-shadow duration-500">
+            <span class="truncate">اطلب خدمة التكليف/المشروع</span>
+        </a>
+    </div>
+{% endblock content %}

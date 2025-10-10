@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>طلبات جديدة | سوق العمل للمُنفذين</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // الألوان الموحدة: تحدد ديناميكياً في الـ style tag
+                        "primary": "var(--primary-color)",       
+                        "secondary": "var(--secondary-color)",   
+                        "success": "#A7C957",                    
+                        
+                        "background": "var(--background-color)", 
+                        "card": "var(--card-color)",             
+                        "text-primary": "var(--text-primary-color)",
+                        "text-secondary": "var(--text-secondary-color)",
+                        "border-color": "var(--border-color-light)",
+                        
+                        // Dark mode colors (Base)
+                        "background-dark": "#111827",
+                        "card-dark": "#1F2937",
+                        "text-primary-dark": "#F9FAFB",
+                        "text-secondary-dark": "#9CA3AF",
+                        "border-color-dark": "#374151",
+                    },
+                    fontFamily: {
+                        display: ["Cairo", "sans-serif"],
+                    },
+                    boxShadow: {
+                        subtle: "0 4px 12px -4px rgba(0, 0, 0, 0.05)",
+                        lifted: "0 10px 20px -5px rgba(0, 0, 0, 0.07)",
+                        item_glow: "0 0 10px var(--primary-color, #B8860B)33",
+                    }
+                },
+            },
+        };
+    </script>
+    
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        
+        /* ********************************************** */
+        /* ***** تعريف المتغيرات الديناميكية (CSS Variables) ***** */
+        /* ********************************************** */
+        
+        /* الوضع الليلي (Dark Mode) - الذهبي لهويتنا الجديدة */
+        .dark {
+            --primary-color: #B8860B; /* الذهبي البرونزي */
+            --secondary-color: #A77926; /* أغمق للتباين في الأزرار */
+            --background-color: #111827;
+            --card-color: #1F2937;
+            --text-primary-color: #F9FAFB;
+            --text-secondary-color: #9CA3AF;
+            --border-color-light: #374151;
+        }
+
+        /* الوضع النهاري (Light Mode) - الأخضر الأصلي لمنصة آية */
+        .light {
+            --primary-color: #386641; /* الأخضر الداكن */
+            --secondary-color: #6A994E; /* الأخضر الفاتح */
+            --background-color: #F7F9FC;
+            --card-color: #FFFFFF;
+            --text-primary-color: #212529;
+            --text-secondary-color: #6C757D;
+            --border-color-light: #E5E7EB;
+        }
+
+        /* توجيه الألوان الأساسية لـ Tailwind للعمل مع المتغيرات */
+        .bg-card { background-color: var(--card-color); }
+        .bg-background { background-color: var(--background-color); }
+        .text-text-primary { color: var(--text-primary-color); }
+        .text-text-secondary { color: var(--text-secondary-color); }
+        .border-border-color { border-color: var(--border-color-light); }
+
+        /* [إصلاح الخلفية العامة و Sidebar في Light Mode] */
+        body.bg-background-dark { background-color: var(--background-color); } /* يضبط خلفية الـ body */
+        .light .bg-background-dark { background-color: var(--background-color) !important; }
+        .light .bg-card-dark { background-color: var(--card-color) !important; }
+
+        /* Sidebar Link Hover States */
+        .link-text-color { color: var(--text-secondary-color); }
+        .link-text-color:hover { color: var(--primary-color); }
+
+        /* تنسيقات الأزرار والقائمة الجانبية لتكون ديناميكية */
+        .bg-primary-dynamic { background-color: var(--primary-color) !important; }
+        .text-primary-dynamic { color: var(--primary-color) !important; }
+        .bg-secondary-dynamic { background-color: var(--secondary-color) !important; }
+        .text-secondary-dynamic { color: var(--secondary-color) !important; }
+        
+        /* تنسيق بطاقة الطلب (Job Card) */
+        .job-card {
+            transition: all 0.3s ease-in-out;
+            border-left: 5px solid transparent;
+        }
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px var(--primary-color, #B8860B)33; 
+            border-left-color: var(--primary-color); 
+        }
+        
+        /* لأجل التشغيل المستقل */
+        main.md\:mr-64 { margin-right: 16rem !important; }
+        .input-dark { background-color: var(--background-dark); border-color: var(--border-color-dark); color: var(--text-primary-dark); }
+        .bg-background-dark { background-color: var(--background-dark); }
+        .dark .bg-background { background-color: var(--background-dark); }
+        .input-dark { 
+             /* نضمن أن لون الخلفية يتغير بشكل صحيح للعناصر المدخلة */
+            background-color: var(--background-dark); 
+            border-color: var(--border-color-dark);
+            color: var(--text-primary-color);
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display text-text-primary-dark antialiased">
+    <div class="flex h-screen overflow-hidden">
+
+        <aside id="sidebar" class="fixed top-0 right-0 z-40 h-full w-64 bg-card dark:bg-card-dark border-l border-border-color dark:border-border-color-dark flex flex-col p-4 transform transition-transform duration-300 ease-in-out translate-x-0">
+            
+            <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-10 px-2">
+                    <div class="bg-primary-dynamic p-2 rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white">school</span>
+                    </div>
+                    <h1 class="text-xl font-bold text-text-primary dark:text-text-primary-dark">داشبورد المُنفذ</h1>
+                </div>
+                
+                <nav class="flex flex-col gap-3">
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors duration-200 link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>الرئيسية (الإحصائيات)</span>
+                    </a>
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors duration-200 bg-primary-dynamic/10 text-primary-dynamic font-bold">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <span>طلبات جديدة (سوق العمل)</span>
+                    </a>
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors duration-200 link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic">
+                        <span class="material-symbols-outlined">sync_alt</span>
+                        <span>مهام قيد التنفيذ</span>
+                    </a>
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors duration-200 link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic">
+                        <span class="material-symbols-outlined">history</span>
+                        <span>سجل التسليمات المكتملة</span>
+                    </a>
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors duration-200 link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic">
+                        <span class="material-symbols-outlined">paid</span>
+                        <span>التمويل والسحب</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <div class="border-t border-border-color dark:border-border-color-dark pt-3 flex flex-col gap-2">
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic transition-colors duration-200">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span>الإعدادات</span>
+                    </a>
+                    <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg link-text-color hover:bg-primary-dynamic/10 hover:text-primary-dynamic transition-colors duration-200">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>تسجيل الخروج</span>
+                    </a>
+                </div>
+                
+                <div class="mt-2">
+                    <div class="flex items-center gap-3 p-3 bg-background dark:bg-background-dark rounded-lg">
+                        <img src="https://via.placeholder.com/40" alt="Avatar" class="w-10 h-10 rounded-full object-cover">
+                        <div class="flex-grow">
+                            <p class="font-bold text-sm text-text-primary dark:text-text-primary-dark">اسم المنفذ</p>
+                            <p class="text-xs text-text-secondary dark:text-text-secondary-dark">منفذ أكاديمي</p>
+                        </div>
+                        <button id="theme-toggle" class="text-text-secondary dark:text-text-secondary-dark hover:text-primary-dynamic p-2 rounded-full">
+                            <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-30 hidden"></div>
+
+        <main class="flex-1 md:mr-64 overflow-y-auto">
+            
+            <header class="md:hidden sticky top-0 z-20 bg-card/90 dark:bg-card-dark/90 backdrop-blur-sm border-b border-border-color dark:border-border-color-dark">
+                <div class="px-4">
+                    <div class="flex items-center justify-between h-16">
+                        <a href="{% url 'executor_dashboard' %}" class="flex items-center gap-2 text-text-primary dark:text-text-primary-dark">
+                             <div class="bg-primary-dynamic p-1.5 rounded-md flex items-center justify-center">
+                                 <span class="material-symbols-outlined text-white">school</span>
+                             </div>
+                             <span class="font-bold">داشبورد المنفذ</span>
+                        </a>
+                        <button id="menu-toggle" class="p-2 text-text-secondary dark:text-text-secondary-dark">
+                            <span class="material-symbols-outlined text-3xl">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="px-6 py-10 lg:px-8">
+                <header class="flex items-center justify-between gap-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-4xl text-primary-dynamic">add_box</span>
+                        <h1 class="text-3xl font-bold text-text-primary dark:text-text-primary-dark">طلبات جديدة متاحة (سوق العمل)</h1>
+                    </div>
+                    <p class="text-lg text-text-secondary-dark">إجمالي الطلبات المتاحة: 12</p>
+                </header>
+
+                <section class="bg-card dark:bg-card-dark p-6 rounded-xl shadow-subtle border border-border-color dark:border-border-color-dark mb-8">
+                    <h2 class="text-xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b border-border-color dark:border-border-color-dark/50 pb-3">تخصيص العرض</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">التخصص الأكاديمي</label>
+                            <select class="w-full bg-background dark:bg-background-dark border border-border-color dark:border-border-color-dark rounded-lg py-2.5 px-4 text-text-primary dark:text-text-primary-dark focus:ring-primary-dynamic focus:border-primary-dynamic transition-colors">
+                                <option>جميع التخصصات</option>
+                                <option>هندسة الحاسب</option>
+                                <option>إدارة الأعمال</option>
+                                <option>العلوم الصحية</option>
+                                <option>القانون</option>
+                            </select>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">نوع المهمة</label>
+                            <select class="w-full bg-background dark:bg-background-dark border border-border-color dark:border-border-color-dark rounded-lg py-2.5 px-4 text-text-primary dark:text-text-primary-dark focus:ring-primary-dynamic focus:border-primary-dynamic transition-colors">
+                                <option>كل الأنواع</option>
+                                <option>مشروع تخرج</option>
+                                <option>بحث / تقرير</option>
+                                <option>واجب / تكليف</option>
+                            </select>
+                        </div>
+                        
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">الفرز حسب المبلغ</label>
+                            <select class="w-full bg-background dark:bg-background-dark border border-border-color dark:border-border-color-dark rounded-lg py-2.5 px-4 text-text-primary dark:text-text-primary-dark focus:ring-primary-dynamic focus:border-primary-dynamic transition-colors">
+                                <option>الأعلى سعرًا أولًا</option>
+                                <option>الأقل سعرًا أولًا</option>
+                            </select>
+                        </div>
+
+                         <div class="relative">
+                            <label class="block text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">الفرز حسب الموعد</label>
+                            <select class="w-full bg-background dark:bg-background-dark border border-border-color dark:border-border-color-dark rounded-lg py-2.5 px-4 text-text-primary dark:text-text-primary-dark focus:ring-primary-dynamic focus:border-primary-dynamic transition-colors">
+                                <option>الأقرب تسليمًا</option>
+                                <option>الأبعد تسليمًا</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="space-y-6">
+                    
+                    <div class="job-card bg-card dark:bg-card-dark p-6 border border-border-color dark:border-border-color-dark flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        
+                        <div class="flex-grow flex items-start gap-4">
+                            <span class="material-symbols-outlined text-4xl text-primary-dynamic mt-1">auto_stories</span>
+                            <div>
+                                <h2 class="text-xl font-bold text-text-primary dark:text-text-primary-dark">مشروع تخرج: نظام محاسبي سحابي (ماجستير)</h2>
+                                <p class="text-sm text-text-secondary dark:text-text-secondary-dark mt-1">تخصص: **إدارة الأعمال** | مطلوب: **تقرير الأصالة**</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-right flex flex-col items-end gap-2 md:pl-8">
+                            <p class="text-3xl font-extrabold text-primary-dynamic">4,500 ر.س</p>
+                            <p class="text-sm text-red-400 font-bold flex items-center gap-1">
+                                <span class="material-symbols-outlined text-base">schedule</span>
+                                متبقي: 5 أيام و 14 ساعة (عاجل)
+                            </p>
+                        </div>
+
+                        <div class="w-full md:w-auto">
+                            <button class="bg-primary-dynamic text-white w-full md:w-auto py-3 px-6 rounded-lg font-bold text-sm hover:bg-secondary-dynamic transition-colors">
+                                استلام التكليف
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="job-card bg-card dark:bg-card-dark p-6 border border-border-color dark:border-border-color-dark flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex-grow flex items-start gap-4">
+                            <span class="material-symbols-outlined text-4xl text-primary-dynamic mt-1">article</span>
+                            <div>
+                                <h2 class="text-xl font-bold text-text-primary dark:text-text-primary-dark">بحث: تأثير الذكاء الاصطناعي على الموارد البشرية</h2>
+                                <p class="text-sm text-text-secondary dark:text-text-secondary-dark mt-1">تخصص: إدارة | المستوى: ماجستير</p>
+                            </div>
+                        </div>
+                        <div class="text-right flex flex-col items-end gap-2 md:pl-8">
+                            <p class="text-3xl font-extrabold text-success">1,800 ر.س</p>
+                            <p class="text-sm text-text-secondary dark:text-text-secondary-dark font-bold flex items-center gap-1">
+                                <span class="material-symbols-outlined text-base">schedule</span>
+                                متبقي: 18 يومًا
+                            </p>
+                        </div>
+                        <div class="w-full md:w-auto">
+                            <button class="bg-primary-dynamic text-white w-full md:w-auto py-3 px-6 rounded-lg font-bold text-sm hover:bg-secondary-dynamic transition-colors">
+                                استلام التكليف
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="job-card bg-card dark:bg-card-dark p-6 border border-border-color dark:border-border-color-dark flex flex-col md:flex-row justify-between items-start md:items-center gap-4 opacity-50">
+                        <div class="flex-grow flex items-start gap-4">
+                            <span class="material-symbols-outlined text-4xl text-text-secondary-dark mt-1">edit_note</span>
+                            <div>
+                                <h2 class="text-xl font-bold text-text-primary dark:text-text-primary-dark">واجب: مقدمة في شبكات الاتصال</h2>
+                                <p class="text-sm text-text-secondary dark:text-text-secondary-dark mt-1">تخصص: هندسة حاسب | المستوى: بكالوريوس</p>
+                            </div>
+                        </div>
+                        <div class="text-right flex flex-col items-end gap-2 md:pl-8">
+                            <p class="text-3xl font-extrabold text-text-secondary-dark">400 ر.س</p>
+                            <p class="text-sm text-red-600 font-bold flex items-center gap-1">
+                                <span class="material-symbols-outlined text-base">hourglass_disabled</span>
+                                انتهى التقديم: تجاوز الموعد!
+                            </p>
+                        </div>
+                        <div class="w-full md:w-auto">
+                            <button disabled class="bg-gray-700 text-text-secondary-dark w-full md:w-auto py-3 px-6 rounded-lg font-bold text-sm cursor-not-allowed">
+                                انتهى التقديم
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Load theme preference
+        let savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            if (themeIcon) themeIcon.textContent = 'dark_mode';
+        } else {
+            html.classList.add('dark');
+            if (themeIcon) themeIcon.textContent = 'light_mode';
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDark = html.classList.contains('dark');
+                html.classList.remove(isDark ? 'dark' : 'light');
+                html.classList.add(isDark ? 'light' : 'dark');
+                localStorage.setItem('theme', isDark ? 'light' : 'dark');
+                if (themeIcon) themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            });
+        }
+        
+        // Sidebar toggle for mobile
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function openSidebar() {
+            if (sidebar && sidebarOverlay) {
+                sidebar.classList.remove('translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            }
+        }
+        function closeSidebar() {
+            if (sidebar && sidebarOverlay) {
+                sidebar.classList.add('translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            }
+        }
+        if (menuToggle) {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (sidebar.classList.contains('translate-x-full')) openSidebar();
+                else closeSidebar();
+            });
+        }
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Input Dark Mode fix for independent run (using dark classes)
+        document.querySelectorAll('select').forEach(input => {
+            input.classList.add('dark:bg-background-dark', 'dark:border-border-color-dark', 'dark:text-text-primary-dark');
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% extends "base_website.html" %}
+
+{% block title %}من نحن | خدمات جامعية{% endblock title %}
+
+{% block body_data_page %}about{% endblock body_data_page %}
+
+{% block content %}
+    <section class="bg-card dark:bg-card-dark p-4 md:p-8 rounded-xl shadow-lifted border border-border-color dark:border-border-color-dark">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div>
+                <h1 class="text-xs md:text-sm font-black text-primary-dynamic mb-2 tracking-widest">قصة تأسيسنا</h1>
+                <h2 class="text-2xl md:text-4xl font-bold text-black dark:text-white mb-4">نحن شريكك الموثوق نحو التفوق الأكاديمي.</h2>
+                <p class="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    بدأت منصتنا من إيمان عميق بأن التميز الأكاديمي حق مشروع لكل طالب. نشأنا من الحاجة المُلحة لسد الفجوة بين ضغط الدراسة الجامعية ومتطلبات الجودة العالية للمشاريع والأبحاث، خاصة في التخصصات الصعبة. نحن نوفر لك الدعم المتخصص الذي تحتاجه للتفوق بثقة.
+                </p>
+                <p class="text-sm md:text-md text-black dark:text-white font-bold mt-4 md:mt-6 border-l-4 border-secondary-dynamic pl-3">
+                    "رسالتنا هي تمكين الجيل القادم من الأكاديميين في العالم العربي عبر تقديم حلول بحثية وكتابية بأعلى معايير الجودة والسرية."
+                </p>
+            </div>
+            <div class="bg-background dark:bg-card-dark/50 p-4 md:p-6 rounded-lg flex items-center justify-center">
+                <span class="material-symbols-outlined text-[6rem] md:text-[10rem] text-primary-dynamic/50">groups</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-black dark:text-white mb-6 md:mb-10 text-center">لماذا نعتبر الخيار الأفضل للطالب الخليجي؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+
+            <div class="value-card bg-card dark:bg-card-dark p-4 md:p-6 rounded-xl shadow-subtle flex flex-col items-center text-center transition-all duration-300">
+                <span class="material-symbols-outlined text-4xl md:text-5xl text-primary-dynamic mb-2 md:mb-3">lock</span>
+                <h3 class="text-lg md:text-xl font-bold text-black dark:text-white mb-2">السرية المطلقة</h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300">نضمن سرية هويتك وبياناتك وملفات مشروعك 100%. لا نتبادل أي معلومات مع أي طرف ثالث.</p>
+            </div>
+
+            <div class="value-card bg-card dark:bg-card-dark p-4 md:p-6 rounded-xl shadow-subtle flex flex-col items-center text-center transition-all duration-300">
+                <span class="material-symbols-outlined text-4xl md:text-5xl text-primary-dynamic mb-2 md:mb-3">verified</span>
+                <h3 class="text-lg md:text-xl font-bold text-black dark:text-white mb-2">الأصالة المضمونة</h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300">نلتزم بتقديم محتوى أصيل وخالٍ من النسخ بنسبة 100%، مع إرفاق تقارير الفحص.</p>
+            </div>
+
+            <div class="value-card bg-card dark:bg-card-dark p-4 md:p-6 rounded-xl shadow-subtle flex flex-col items-center text-center transition-all duration-300">
+                <span class="material-symbols-outlined text-4xl md:text-5xl text-primary-dynamic mb-2 md:mb-3">workspace_premium</span>
+                <h3 class="text-lg md:text-xl font-bold text-black dark:text-white mb-2">نخبة من الخبراء</h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300">يتكون فريقنا من متخصصين وحملة درجات عليا (ماجستير ودكتوراه) في مجالاتهم.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-background dark:bg-card-dark/50 p-4 md:p-8 rounded-xl border border-border-color dark:border-border-color-dark text-center">
+        <h2 class="text-xl md:text-3xl font-bold text-black dark:text-white mb-4 md:mb-6">نتحدث بالنتائج</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+            <div class="sm:border-r border-border-color dark:border-border-color-dark sm:pr-4 pb-4 sm:pb-0 border-b sm:border-b-0">
+                <p class="text-3xl md:text-4xl font-extrabold text-primary-dynamic">45+</p>
+                <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 mt-1">مشروع تخرج ناجح</p>
+            </div>
+            <div class="sm:border-r border-border-color dark:border-border-color-dark sm:pr-4 pb-4 sm:pb-0 border-b sm:border-b-0">
+                <p class="text-3xl md:text-4xl font-extrabold text-primary-dynamic">98%</p>
+                <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 mt-1">رضا العملاء والتقييمات</p>
+            </div>
+            <div>
+                <p class="text-3xl md:text-4xl font-extrabold text-primary-dynamic">12+</p>
+                <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 mt-1">تخصص أكاديمي</p>
+            </div>
+        </div>
+
+        <div class="mt-6 md:mt-8">
+            <a href="{% url 'make_order' %}" class="inline-block bg-primary-dynamic text-white py-2 md:py-3 px-6 md:px-8 rounded-lg font-bold hover:bg-secondary-dynamic transition-colors text-sm md:text-lg">
+                اطلب خدمة الآن
+            </a>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block extra_js %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutLink = document.querySelector('.nav-link[data-page="about"]');
+            if (aboutLink) setTimeout(() => { setActiveLink(aboutLink); }, 100);
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => setActiveLink(link));
+            });
+        });
+    </script>
+{% endblock extra_js %}

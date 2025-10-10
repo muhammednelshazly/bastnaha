@@ -1,0 +1,148 @@
+{% extends "base_website.html" %}
+
+{% block title %}الأسئلة الشائعة | خدمات جامعية{% endblock title %}
+
+{% block body_data_page %}faq{% endblock body_data_page %}
+
+{% block content %}
+    <section class="text-center">
+        <span class="material-symbols-outlined text-6xl text-primary-dynamic mb-3">help_center</span>
+        <h1 class="text-4xl font-bold text-black dark:text-white mb-3">الأسئلة الشائعة</h1>
+        <h2 class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+            إجابات واضحة ومباشرة لأكثر الاستفسارات تكراراً حول خدماتنا، الأسعار، وضمانات الجودة.
+        </h2>
+    </section>
+
+    <section class="max-w-4xl mx-auto w-full">
+        <h3 class="text-2xl font-bold text-primary-dynamic mb-4 border-b border-border-color dark:border-border-color-dark/50 pb-2">الجودة والسرية والأصالة</h3>
+
+        <div class="space-y-3">
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>ما هي الضمانات التي تقدمونها على جودة العمل؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        نضمن أن كل تكليف أو بحث يتم إعداده بواسطة متخصصين حملة درجات عليا في المجال المعني. الأهم هو أننا نضمن خلو العمل من النسخ (Plagiarism) بنسبة 100% ونوفر لك تقرير فحص الأصالة. كما نلتزم بالمراجعة والتعديل حسب ملاحظات أستاذك بعد التسليم.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>هل هويتي كطالب ستظل سرية تماماً؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        نعم، السرية هي قيمتنا الأساسية. يتم تشفير جميع بياناتك، ولا نتبادل أي معلومات شخصية مع المنفذين أو أي طرف خارجي. بياناتك تُستخدم فقط لغرض التواصل وإتمام الخدمة بفعالية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>ماذا يحدث إذا لم يوافق أستاذي على التسليم؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        نوفر ضماناً للمراجعة والتعديل. إذا كانت هناك ملاحظات من أستاذك تتطلب تغييرات في نطاق العمل المتفق عليه، فإننا نلتزم بإجرائها مجاناً لمدة تصل إلى 7 أيام من تاريخ التسليم.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto w-full">
+        <h3 class="text-2xl font-bold text-primary-dynamic mb-4 border-b border-border-color dark:border-border-color-dark/50 pb-2">الطلب والتسعير والدفع</h3>
+        <div class="space-y-3">
+
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>كيف يتم تحديد سعر التكليف بالضبط؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        يُحدد السعر بناءً على 3 عوامل رئيسية: <strong>نوع الخدمة</strong> (بحث/مشروع)، <strong>المستوى الأكاديمي</strong> (بكالوريوس/ماجستير)، و<strong>التعجيل بالموعد النهائي</strong>. لهذا السبب، نطلب منك ملء نموذج الطلب أولاً للحصول على عرض سعر دقيق ومجاني.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>ما هي طرق الدفع المتاحة للطلاب في السعودية؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        ندعم جميع طرق الدفع المحلية والعالمية الآمنة، وتشمل: بطاقات مدى، فيزا وماستركارد، وخدمات التحويل البنكي المباشر (مثل الراجحي والأهلي). جميع المعاملات مؤمَّنة بالكامل.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-card dark:bg-card-dark rounded-xl border border-border-color dark:border-border-color-dark shadow-subtle">
+                <button class="accordion-header w-full flex justify-between items-center p-5 text-black dark:text-white font-bold text-lg hover:text-primary-dynamic transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <span>هل يمكنني التواصل المباشر مع المنفذ؟</span>
+                    <span class="material-symbols-outlined transform transition-transform duration-300 rotate-0">expand_more</span>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-gray-700 dark:text-gray-300 pb-5">
+                        نعم، يتم توفير نافذة مراسلة آمنة داخل الداشبورد الخاصة بك (بعد تأكيد الطلب). هذا يضمن نقل متطلباتك بكفاءة، مع الحفاظ على سرية هويتك وهويته.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="text-center px-4 py-16 bg-background dark:bg-card-dark/50 rounded-xl mx-auto max-w-4xl border border-border-color dark:border-border-color-dark">
+        <h2 class="text-3xl font-black text-black dark:text-white mb-4 font-display">لم تجد إجابتك؟</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">تواصل معنا مباشرةً عبر تيليجرام أو نموذج الاتصال.</p>
+        <a href="TELEGRAM_CONTACT_LINK" class="bg-primary-dynamic text-white py-3 px-8 rounded-lg font-bold hover:bg-secondary-dynamic transition-colors text-lg">
+            تواصل فوري مع الدعم
+        </a>
+    </div>
+{% endblock content %}
+
+{% block extra_js %}
+    <script>
+        function toggleAccordion(header) {
+            const item = header.closest('.accordion-item');
+            const content = item.querySelector('.accordion-content');
+            const icon = header.querySelector('.material-symbols-outlined');
+
+            document.querySelectorAll('.accordion-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    activeItem.querySelector('.accordion-content').style.maxHeight = null;
+                    activeItem.querySelector('.material-symbols-outlined').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // تفعيل الـ Accordion بعد تحميل الصفحة
+            const activeHeaders = document.querySelectorAll('.accordion-item.active .accordion-header');
+            activeHeaders.forEach(header => {
+                header.nextElementSibling.style.maxHeight = header.nextElementSibling.scrollHeight + "px";
+                header.querySelector('.material-symbols-outlined').style.transform = 'rotate(180deg)';
+            });
+            
+            // تفعيل الزر النشط في الـ Header (يتم استدعاء setActiveLink من Base)
+            const faqLink = document.querySelector('.nav-link[data-page="faq"]');
+            if (faqLink) setTimeout(() => { setActiveLink(faqLink); }, 100);
+        });
+    </script>
+{% endblock extra_js %}
