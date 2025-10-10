@@ -1,0 +1,7 @@
+Django>=4.2,<5
+gunicorn
+whitenoise
+dj-database-url
+python-dotenv
+psycopg2-binary      # لو هتوصل PostgreSQL على Railway
+Pillow               # لو بتتعامل مع صور
