@@ -26,17 +26,13 @@ SECRET_KEY = 'django-insecure-*g$w(hf@%(e9v=fqaus6mlfbal7kn=&ot4@-giqoak-u8rnuxv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "bastnaha-production.up.railway.app",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
 
 
 # Django 4+ يحتاج CSRF_TRUSTED_ORIGINS بالدومين مع https
-CSRF_TRUSTED_ORIGINS = [
-    "https://bastnaha-production.up.railway.app",
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000').split(',')
+
 
 
 # Application definition
