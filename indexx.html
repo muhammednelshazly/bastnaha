@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Academic Services - الشراكة الأكاديمية الفائقة</title>
+    
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.classList.remove('dark', 'light');
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00AEEF",
+                        "secondary": "#008080",
+                        "telegram": "#229ED9",
+                        "background-dark": "#0A0A0A",
+                        "background-light": "#F9F9F9",
+                        "card-dark": "#1A1A1A",
+                        "card-light": "#FFFFFF",
+                        "primary-dark-theme": "#A77926", // Gold color for dark theme
+                        "text-dark-theme": "#C0C0C0", // Light gray for dark theme text
+                    },
+                    fontFamily: {
+                        "display": ["Cairo", "sans-serif"],
+                        "sans": ["Cairo", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3)',
+                        'primary-glow': '0 0 25px rgba(0, 174, 239, 0.7)',
+                        'primary-glow-dark': '0 0 25px rgba(167, 121, 38, 0.7)',
+                    },
+                    keyframes: {
+                        'spin-slow': {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        'logo-pulse': {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.85' },
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin-slow 8s linear infinite',
+                        'logo-pulse': 'logo-pulse 2s ease-in-out infinite',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .hero-background {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px; opacity: 0.1; z-index: -1;
+        }
+        .service-card-hover { transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .service-card-hover:hover {
+            transform: scale(1.03); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 20px var(--card-glow-color);
+        }
+        .service-card-hover:hover .icon-animation {
+            transform: scale(1.15) translate(4px, -4px);
+            text-shadow: 0 0 15px currentColor;
+        }
+        #nav-indicator {
+            position: absolute; height: 3px; bottom: -5px; left: 0; width: 0;
+            transition: left 0.3s, width 0.3s; border-radius: 9999px;
+        }
+        .telegram-icon {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="%2329b6f6" d="M44,24c0,11-9,20-20,20S4,35,4,24S13,4,24,4S44,13,44,24z"/><path fill="%23fff" d="M15.2,22.8l12.2-5.4c0.8-0.3,1.3,0.2,1.1,1l-2.4,11.3c-0.2,0.8-0.7,1-1.4,0.6l-3.5-2.6l-1.7,1.6c-0.2,0.2-0.3,0.3-0.6,0.3l0.2-3.6l6.8-6.2c0.3-0.3,0-0.6-0.4-0.3l-8.5,5.4l-3.5-1.1C14.4,23.3,14.4,22.9,15.2,22.8z"/></svg>');
+            background-size: 100%;
+        }
+
+        /* --- Light Mode --- */
+        .light { --card-glow-color: rgba(0, 174, 239, 0.5); }
+        .light body { background-color: #F9F9F9; color: #333; }
+        .light header { background-color: rgba(249, 249, 249, 0.9); border-color: #E0E0E0; }
+        .light .dark-aware-text { color: #008080; }
+        .light .dark-aware-subtext { color: #555555; }
+        .light .dark-aware-card { background-color: #FFFFFF; border-color: #E0E0E0; }
+        .light .bg-primary-dynamic { background-color: #00AEEF; }
+        .light .text-primary-dynamic { color: #00AEEF; }
+        .light .border-primary-dynamic { border-color: #00AEEF; }
+        .light #nav-indicator { background-color: #00AEEF; }
+        .light .service-card-hover:hover { border-color: #00AEEF !important; }
+
+        /* --- Dark Mode --- */
+        .dark { --card-glow-color: rgba(167, 121, 38, 0.5); }
+        .dark body { background-color: #0A0A0A; color: #E0E0E0; }
+        .dark header { background-color: rgba(26, 26, 26, 0.7); }
+        .dark .dark-aware-text { color: #FFFFFF; }
+        .dark .dark-aware-subtext { color: #C0C0C0; }
+        .dark .dark-aware-card { background-color: #1A1A1A; border-color: rgba(255, 255, 255, 0.1); }
+        .dark .bg-primary-dynamic { background-color: #A77926; }
+        .dark .text-primary-dynamic { color: #A77926; }
+        .dark .border-primary-dynamic { border-color: #A77926; }
+        .dark .shadow-primary-glow-dynamic { box-shadow: 0 0 25px rgba(167, 121, 38, 0.7); }
+        .dark #nav-indicator { background-color: #A77926; }
+    </style>
+</head>
+
+<body data-page="home">
+
+    <div id="splash-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-background-dark transition-all duration-700 ease-in-out">
+        <div class="flex flex-col items-center relative w-48 h-48">
+            <div id="splash-logo" class="absolute inset-0 flex items-center justify-center flex-col transform opacity-0 translate-y-4 transition-all duration-500 delay-300">
+                <span class="material-symbols-outlined text-[4rem] text-primary-dynamic animate-logo-pulse">school</span>
+                <h1 class="text-xl font-black dark-aware-text mt-2 font-display">خدمات جامعية</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+        
+        <div class="bg-primary-dynamic/10 dark-aware-subtext text-center text-xs py-1 font-medium tracking-wide">
+            ضمان الأصالة الأكاديمية 100% | حماية حقوق الملكية الفكرية والسرية التامة.
+        </div>
+
+        <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+            <div class="flex flex-col max-w-[1200px] flex-1">
+                
+                <header class="sticky top-4 z-50 shadow-lg dark:shadow-black/30 light:shadow-gray-300/50 flex flex-wrap items-center justify-between px-4 md:px-6 py-3 rounded-xl backdrop-blur-lg">
+                    <div class="flex items-center justify-between w-full md:w-auto gap-4">
+                        <a href="#" class="flex items-center gap-2 md:gap-4">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl text-primary-dynamic">school</span>
+                            <h2 class="text-lg md:text-2xl font-black dark-aware-text font-display">خدمات جامعية</h2>
+                        </a>
+                        <div class="flex md:hidden items-center gap-2">
+                            <button class="dark-aware-text hover:text-primary-dynamic" id="theme-toggle-mobile"><span class="material-symbols-outlined">light_mode</span></button>
+                            <button class="dark-aware-text hover:text-primary-dynamic" id="mobile-menu-btn"><span class="material-symbols-outlined text-3xl">menu</span></button>
+                        </div>
+                    </div>
+
+                    <nav class="hidden md:flex flex-1 justify-center items-center gap-6 lg:gap-9 nav-links-container relative">
+                        <a class="nav-link dark-aware-subtext text-sm font-medium" href="#hero" data-page="home">الرئيسية</a>
+                        <a class="nav-link dark-aware-subtext text-sm font-medium" href="#guarantees" data-page="guarantees">ضماناتنا</a>
+                        <a class="nav-link dark-aware-subtext text-sm font-medium" href="#services" data-page="services">الخدمات</a>
+                        <a class="nav-link dark-aware-subtext text-sm font-medium" href="#testimonials" data-page="testimonials">آراء العملاء</a>
+                        <div id="nav-indicator"></div>
+                    </nav>
+
+                    <div class="hidden md:flex items-center gap-2 lg:gap-4">
+                        <button class="dark-aware-text hover:text-primary-dynamic" id="theme-toggle"><span class="material-symbols-outlined">light_mode</span></button>
+                        <a href="#" class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-3 lg:px-4 bg-primary-dynamic text-white dark:text-black text-sm font-bold shadow-primary-glow-dynamic hover:shadow-xl transition-shadow">
+                            <span class="w-5 h-5 telegram-icon ml-2"></span><span>اطلب الآن</span>
+                        </a>
+                    </div>
+                    
+                    <div id="mobile-menu" class="hidden w-full mt-4 border-t border-gray-300 dark:border-gray-700 pt-4">
+                        <a class="block py-2 px-4 rounded hover:bg-primary-dynamic/10" href="#hero">الرئيسية</a>
+                        <a class="block py-2 px-4 rounded hover:bg-primary-dynamic/10" href="#guarantees">ضماناتنا</a>
+                        <a class="block py-2 px-4 rounded hover:bg-primary-dynamic/10" href="#services">الخدمات</a>
+                        <a class="block py-2 px-4 rounded hover:bg-primary-dynamic/10" href="#testimonials">آراء العملاء</a>
+                    </div>
+                </header>
+
+                <main class="flex flex-col gap-16 lg:gap-24 py-8 lg:py-16">
+
+                    <section id="hero" class="relative">
+                        <div class="hero-background"></div>
+                        <div class="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+                            <div class="flex flex-col md:w-1/2 text-center md:text-right">
+                                <h1 class="dark-aware-text text-3xl sm:text-4xl lg:text-5xl font-black leading-tight font-display mb-4">مساعدتك الأكاديمية الاحترافية لتحقيق التفوق.</h1>
+                                <h2 class="dark-aware-subtext text-base sm:text-lg mb-6">ننجز تكليفاتك، واجباتك، ومشاريع تخرجك لجميع الكليات بضمان الجودة والسرية.</h2>
+                                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                                    <a href="#" class="flex min-w-[160px] items-center justify-center rounded-lg h-12 px-6 bg-primary-dynamic text-white dark:text-black font-bold shadow-primary-glow-dynamic hover:shadow-xl transition-shadow">اطلب خدمتك الآن</a>
+                                </div>
+                                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3 mt-6">
+                                    <div class="flex items-center gap-2"><span class="text-primary-dynamic text-lg">⭐⭐⭐⭐⭐</span><p class="dark-aware-subtext text-sm">تقييم 4.9/5</p></div>
+                                    <div class="flex items-center gap-2"><span class="text-primary-dynamic text-2xl font-bold">120+</span><p class="dark-aware-subtext text-sm">مشروع نشط</p></div>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 flex justify-center p-2">
+                                <div class="aspect-square w-full max-w-[250px] sm:max-w-xs md:max-w-md bg-primary-dynamic/5 rounded-full flex items-center justify-center shadow-primary-glow-dynamic">
+                                    <span class="material-symbols-outlined text-[6rem] sm:text-[8rem] text-primary-dynamic/70">auto_stories</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="guarantees" class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+                        <div class="flex flex-col gap-4 lg:w-1/3 lg:sticky lg:top-28 text-center lg:text-right">
+                            <h3 class="text-primary-dynamic text-sm font-black tracking-widest uppercase">قيمنا الأساسية</h3>
+                            <h2 class="dark-aware-text text-3xl lg:text-4xl font-black font-display">الضمانات الأكاديمية الحصرية.</h2>
+                            <p class="dark-aware-subtext text-base lg:text-lg">نحن نقدم دعمًا أكاديميًا لا مثيل له من خلال التزامنا بالجودة، **السرية المطلقة،** والخبرة الموثوقة.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 lg:w-2/3">
+                            <div class="service-card-hover group flex flex-col gap-4 rounded-xl dark-aware-card p-6 lg:p-8 shadow-xl">
+                                <div class="text-primary-dynamic transition-all duration-300 icon-animation"><span class="material-symbols-outlined text-4xl lg:text-5xl">verified_user</span></div>
+                                <h3 class="dark-aware-text text-lg lg:text-xl font-bold font-display">حقوق الملكية الفكرية الكاملة</h3>
+                                <p class="dark-aware-subtext text-sm lg:text-base">تحتفظ بالملكية الكاملة لجميع الأعمال المنجزة، مضمونة بموجب عقودنا.</p>
+                            </div>
+                            <div class="service-card-hover group flex flex-col gap-4 rounded-xl dark-aware-card p-6 lg:p-8 shadow-xl">
+                                <div class="text-primary-dynamic transition-all duration-300 icon-animation"><span class="material-symbols-outlined text-4xl lg:text-5xl">school</span></div>
+                                <h3 class="dark-aware-text text-lg lg:text-xl font-bold font-display">نخبة من حملة الدرجات العليا</h3>
+                                <p class="dark-aware-subtext text-sm lg:text-base">يتكون فريقنا من خريجي الدكتوراه والماجستير من أفضل الجامعات، لضمان أعلى جودة.</p>
+                            </div>
+                            <div class="service-card-hover group flex flex-col gap-4 rounded-xl dark-aware-card p-6 lg:p-8 shadow-xl md:col-span-2">
+                                <div class="text-primary-dynamic transition-all duration-300 icon-animation"><span class="material-symbols-outlined text-4xl lg:text-5xl">monitoring</span></div>
+                                <h3 class="dark-aware-text text-lg lg:text-xl font-bold font-display">نظام متقدم لتتبع الطلبات</h3>
+                                <p class="dark-aware-subtext text-sm lg:text-base">يتيح لك نظام التتبع الشفاف مراقبة تقدم مشروعك في كل مرحلة من مراحل الإنجاز.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="services" class="flex flex-col gap-8">
+                        <h2 class="dark-aware-text text-3xl lg:text-4xl font-black font-display text-center">مجالات الخدمة المتخصصة</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="service-card-hover group flex flex-col gap-3 rounded-xl dark-aware-card p-6 shadow-lg">
+                                <span class="material-symbols-outlined text-primary-dynamic text-4xl">article</span>
+                                <h3 class="dark-aware-text text-lg font-bold font-display">الأوراق البحثية والتكليفات</h3>
+                                <p class="dark-aware-subtext text-sm">أوراق بحثية مصممة بخبرة لتلبية احتياجاتك الجامعية.</p>
+                            </div>
+                            <div class="service-card-hover group flex flex-col gap-3 rounded-xl dark-aware-card p-6 shadow-lg">
+                                <span class="material-symbols-outlined text-primary-dynamic text-4xl">auto_stories</span>
+                                <h3 class="dark-aware-text text-lg font-bold font-display">دعم رسائل الماجستير والأطروحات</h3>
+                                <p class="dark-aware-subtext text-sm">دعم شامل من المقترح الأولي إلى التسليم النهائي.</p>
+                            </div>
+                            <div class="service-card-hover group flex flex-col gap-3 rounded-xl dark-aware-card p-6 shadow-lg">
+                                <span class="material-symbols-outlined text-primary-dynamic text-4xl">analytics</span>
+                                <h3 class="dark-aware-text text-lg font-bold font-display">التحليل الإحصائي والبيانات</h3>
+                                <p class="dark-aware-subtext text-sm">تحليل بيانات دقيق باستخدام تقنيات حديثة ومتطورة.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="testimonials">
+                        <h2 class="dark-aware-text text-3xl lg:text-4xl font-black font-display text-center mb-8">قصص نجاح من عملائنا</h2>
+                        <div class="dark-aware-card rounded-xl p-6 md:p-8 lg:p-12 border border-primary-dynamic/20 backdrop-blur-sm flex flex-col md:flex-row items-center gap-6 shadow-primary-glow-dynamic">
+                            <div class="flex flex-col items-center md:items-start text-center md:text-right md:w-1/4">
+                                <img alt="د. فاطمة الأحمد" class="w-24 h-24 rounded-full object-cover border-4 border-primary-dynamic/70 mb-4" src="https://i.pravatar.cc/150?u=fatima"/>
+                                <p class="text-primary-dynamic font-black font-display text-xl">- د. فاطمة الأحمد</p>
+                            </div>
+                            <div class="flex-1 text-center md:text-right">
+                                <div class="flex justify-center md:justify-start mb-3 text-primary-dynamic text-2xl">⭐⭐⭐⭐⭐</div>
+                                <blockquote class="text-lg lg:text-xl font-display italic dark-aware-text leading-relaxed">
+                                    "كانت تجربتي معهم استثنائية. الاحترافية العالية والجودة التي لا تضاهى ساعدتني على تحقيق أهدافي الأكاديمية بثقة. أوصي بهم بشدة لمن يسعى للتميز."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="text-center p-8 md:p-12 dark:bg-gradient-to-t dark:from-primary-dynamic/20 light:bg-primary-dynamic/10 rounded-xl">
+                        <h2 class="text-3xl md:text-5xl font-black dark-aware-text mb-4 font-display">ابدأ رحلتك نحو التميز الأكاديمي.</h2>
+                        <p class="dark-aware-subtext text-base lg:text-xl mb-8">لا تؤجل نجاحك للغد، فريقنا مستعد للبدء فوراً.</p>
+                        <a href="#" class="inline-flex min-w-[200px] items-center justify-center rounded-xl h-14 px-8 bg-primary-dynamic text-white dark:text-black text-lg font-bold shadow-primary-glow-dynamic hover:shadow-xl transition-shadow">
+                            قدم طلبك بسرية تامة
+                        </a>
+                    </section>
+
+                </main>
+            </div>
+        </div>
+        
+        <footer class="mt-12 py-8 bg-black/20 dark:bg-card-dark/50 light:bg-gray-200">
+            <div class="max-w-6xl mx-auto px-4 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="material-symbols-outlined text-2xl text-primary-dynamic">school</span>
+                        <span class="text-xl font-bold dark-aware-text">خدمات جامعية</span>
+                    </div>
+                    <p class="text-sm dark-aware-subtext">شريكك الموثوق نحو التفوق الأكاديمي.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-primary-dynamic mb-3">روابط سريعة</h3>
+                    <ul class="space-y-2 text-sm dark-aware-subtext">
+                        <li><a href="#hero" class="hover:text-primary-dynamic">الرئيسية</a></li>
+                        <li><a href="#services" class="hover:text-primary-dynamic">الخدمات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-primary-dynamic mb-3">الدعم والقانونية</h3>
+                    <ul class="space-y-2 text-sm dark-aware-subtext">
+                        <li><a href="#" class="hover:text-primary-dynamic">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-primary-dynamic">شروط الخدمة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-primary-dynamic mb-3">تواصل معنا</h3>
+                    <div class="flex gap-3 mt-3 text-primary-dynamic">
+                        <a href="#" title="تيليجرام" class="hover:opacity-80"><span class="material-symbols-outlined text-xl">send</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs dark-aware-subtext mt-8 pt-4 border-t border-gray-500/20 max-w-6xl mx-auto px-4">
+                © 2025 خدمات جامعية. جميع الحقوق محفوظة.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Elements ---
+            const htmlElement = document.documentElement;
+            const splashScreen = document.getElementById('splash-screen');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navIndicator = document.getElementById('nav-indicator');
+
+            // --- Theme Management ---
+            let currentTheme = localStorage.getItem('theme') || 'dark';
+            
+            const updateThemeUI = (theme) => {
+                htmlElement.classList.remove('dark', 'light');
+                htmlElement.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                themeToggles.forEach(toggle => {
+                    if (toggle) {
+                        const icon = toggle.querySelector('.material-symbols-outlined');
+                        icon.textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
+                    }
+                });
+            };
+
+            themeToggles.forEach(toggle => {
+                if (toggle) {
+                    toggle.addEventListener('click', () => {
+                        currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+                        updateThemeUI(currentTheme);
+                    });
+                }
+            });
+            updateThemeUI(currentTheme); // Initial UI setup
+
+            // --- Mobile Menu ---
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Splash Screen ---
+            const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+            if (!hasSeenSplash && splashScreen) {
+                sessionStorage.setItem('hasSeenSplash', 'true');
+                setTimeout(() => {
+                    splashScreen.classList.add('opacity-0', 'scale-110');
+                    setTimeout(() => splashScreen.remove(), 700);
+                }, 1500);
+            } else if (splashScreen) {
+                splashScreen.remove();
+            }
+
+            // --- Navigation Indicator ---
+            const moveIndicator = (targetElement) => {
+                if (!navIndicator || !targetElement) return;
+                const container = targetElement.parentElement;
+                const targetRect = targetElement.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                navIndicator.style.width = `${targetRect.width}px`;
+                navIndicator.style.left = `${targetRect.left - containerRect.left}px`;
+            };
+
+            const setActiveLink = (link) => {
+                navLinks.forEach(l => l.classList.remove('active', 'text-primary-dynamic'));
+                link.classList.add('active', 'text-primary-dynamic');
+                moveIndicator(link);
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => setActiveLink(link));
+            });
+            
+            // Set initial active link
+            if (navLinks.length > 0) {
+                 setTimeout(() => setActiveLink(navLinks[0]), 100);
+            }
+        });
+    </script>
+</body>
+</html>
